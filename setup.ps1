@@ -1,10 +1,3 @@
-$FontPath = Test-Path -Path "$env:USERPROFILE\Fonts" -ErrorAction SilentlyContinue
-
-if ($FontPath -eq $false) {
-    New-Item -Path "$env:USERPROFILE\Fonts" -Name "Fonts" -ItemType "Directory" -Force
-    Write-Host "Created Fonts directory at $env:USERPROFILE\Fonts" -ForegroundColor Green
-}
-
 $ChocoInstalled = Test-Path -Path "$env:PROGRAMDATA\chocolatey" -ErrorAction SilentlyContinue
 
 if ($ChocoInstalled -eq $false) {
@@ -13,13 +6,13 @@ if ($ChocoInstalled -eq $false) {
     Write-Host "Chocolatey has been installed" -ForegroundColor Green
 }
 
-if ($ChocoInstalled) {
+if ($ChocoInstalled -eq $true) {
     Write-Host "Installing FiraCode font" -ForegroundColor Cyan
     choco install firacode -y
     Write-Host "FiraCode font has been installed." -ForegroundColor Green
 }
 
-$FontInstalled = Get-ChildItem -Path "$env:USERPROFILE\Fonts" -Filter "FiraCode*" -ErrorAction SilentlyContinue
+$FontInstalled = Get-ChildItem -Path "C:\Windows\fonts" -Filter "FiraCode*" -ErrorAction SilentlyContinue
 
 if ($FontInstalled.Count -gt 0) {
     Write-Host "Installing starship..." -ForegroundColor Cyan
