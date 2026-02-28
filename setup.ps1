@@ -59,5 +59,5 @@ catch {
 }
 
 if ($StarshipConfigExists -eq $true) {
-    Write-Host "Starship setup is complete. Please restart your terminal to apply the changes." -ForegroundColor Green
+    Write-Host "Starship setup is complete. Please restart your terminal to apply the changes." -ForegroundColor Cyan
 }
