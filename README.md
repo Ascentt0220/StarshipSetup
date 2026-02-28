@@ -2,6 +2,9 @@
 Hands off installation of Starship and FiraCode nerdfont for the Windows Terminal default Powershell profile
 
 Depends on chocolatey, make sure to install this first
+```
+Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))
+```
 
 Copy paste the following into powershell:
 
