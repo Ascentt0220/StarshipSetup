@@ -13,6 +13,7 @@ catch {
     exit
 }
 
+Start-Process powershell -ArgumentList "-NoExit -ExecutionPolicy Bypass -File "$env:TEMP\StarshipInstallScript.ps1"
 try {
     if ($ChocoInstalled -eq $true) {
     Write-Host "Installing FiraCode font" -ForegroundColor Cyan
@@ -59,5 +60,5 @@ catch {
 }
 
 if ($StarshipConfigExists -eq $true) {
-    Write-Host "Starship setup is complete. Please restart your terminal to apply the changes." -ForegroundColor Cyan
+    Write-Host "Starship setup is complete. Please restart your terminal to apply the changes" -ForegroundColor Cyan
 }
