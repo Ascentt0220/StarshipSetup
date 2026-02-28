@@ -3,7 +3,7 @@ $ChocoInstalled = Test-Path -Path "$env:PROGRAMDATA\chocolatey" -ErrorAction Sil
 if ($ChocoInstalled -eq $false) {
     Write-Host "Please install Chocolatey first" -ForegroundColor Cyan
     Write-Host "Exiting the script..." -ForegroundColor Yellow
-    exit
+    throw
 }
 
 try {
