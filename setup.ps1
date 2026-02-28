@@ -8,29 +8,29 @@ if ($ChocoInstalled -eq $false) {
 
 try {
     if ($ChocoInstalled -eq $true) {
-        Write-Host 'Installing FiraCode font' -ForegroundColor Cyan
+        Write-Host "Installing FiraCode font" -ForegroundColor Cyan
         choco install firacode -y
-        Write-Host 'FiraCode font has been installed.' -ForegroundColor Green
+        Write-Host "FiraCode font has been installed" -ForegroundColor Green
     }
 }
 catch {
-    Write-Host 'An error occurred while installing FiraCode font: $_' -ForegroundColor Red
-    Write-Host 'Exiting the script.' -ForegroundColor Yellow
+    Write-Host "An error occurred while installing FiraCode font" -ForegroundColor Red
+    Write-Host "Exiting the script." -ForegroundColor Yellow
     exit
 }
 
-$FontInstalled = Get-ChildItem -Path 'C:\Windows\fonts' -Filter 'FiraCode*' -ErrorAction SilentlyContinue
+$FontInstalled = Get-ChildItem -Path "C:\Windows\fonts" -Filter "FiraCode*" -ErrorAction SilentlyContinue
 
 try {
     if ($FontInstalled.Count -gt 0) {
-        Write-Host 'Installing starship...' -ForegroundColor Cyan
+        Write-Host "Installing starship..." -ForegroundColor Cyan
         choco install starship -y
-        Write-Host 'Starship has been installed' -ForegroundColor Green
+        Write-Host "Starship has been installed" -ForegroundColor Green
     }
 }
 catch {
-    Write-Host 'An error occurred while installing Starship: $_' -ForegroundColor Red
-    Write-Host 'Exiting the script.' -ForegroundColor Yellow
+    Write-Host "An error occurred while installing Starship: $_" -ForegroundColor Red
+    Write-Host "Exiting the script." -ForegroundColor Yellow
     exit
 }
 
