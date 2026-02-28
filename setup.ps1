@@ -16,7 +16,7 @@ try {
 catch {
     Write-Host "An error occurred while installing FiraCode font" -ForegroundColor Red
     Write-Host "Exiting the script." -ForegroundColor Yellow
-    exit
+    throw
 }
 
 $FontInstalled = Get-ChildItem -Path "C:\Windows\fonts" -Filter "FiraCode*" -ErrorAction SilentlyContinue
@@ -31,7 +31,7 @@ try {
 catch {
     Write-Host "An error occurred while installing Starship: $_" -ForegroundColor Red
     Write-Host "Exiting the script." -ForegroundColor Yellow
-    exit
+    throw
 }
 
 $StarshipConfig = "$env:USERPROFILE\.config\starship.toml"
@@ -46,7 +46,7 @@ try {
 catch {
     Write-Host "An error occurred while setting up Starship configuration: $_" -ForegroundColor Red
     Write-Host "Exiting the script." -ForegroundColor Yellow
-    exit
+    throw
 }
 
 if ($StarshipConfigExists -eq $true) {
