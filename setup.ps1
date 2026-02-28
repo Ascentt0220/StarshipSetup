@@ -32,7 +32,7 @@ $StarshipConfigExists = Test-Path -Path $StarshipConfig -ErrorAction SilentlyCon
 
 if ($StarshipConfigExists -eq $false) {
     New-Item -Path "$env:USERPROFILE" -Name ".config" -ItemType "Directory" -Force
-    iwr -Uri "myrawgithub starship.toml file url" -OutFile "$env:USERPROFILE\.config\starship.toml"
+    iwr -Uri "https://raw.githubusercontent.com/Ascentt0220/StarshipSetup/refs/heads/main/starship.toml" -OutFile "$env:USERPROFILE\.config\starship.toml"
 }
 
 Write-Host "Starship setup is complete. Please restart your terminal to apply the changes."
