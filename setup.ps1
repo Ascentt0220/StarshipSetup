@@ -49,6 +49,16 @@ catch {
     throw
 }
 
+try {
+    $profilePath = "C:\Users\$($env:USERNAME)\Documents\PowerShell\Microsoft.PowerShell_profile.ps1"
+    Add-Content -Path $profilePath -Value "`nInvoke-Expression (&starship init powershell)"
+}
+catch {
+    Write-Host "An error occurred while adding Starship initialization to profile: $_" -ForegroundColor Red
+    Write-Host "Exiting the script." -ForegroundColor Yellow
+    throw
+}
+
 if ($StarshipConfigExists -eq $true) {
     Write-Host "Starship setup is complete. Please restart your terminal to apply the changes" -ForegroundColor Cyan
 }
